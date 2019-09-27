@@ -1,0 +1,14 @@
+run server: ./server 4098 (any port number 4000-4100)
+connect with ubuntu: ncat 130.208.243.61 4098 (port number)
+tcdump:
+    -run ipconfig, look for IPv4 address (192.168.1.40) en0
+
+
+
+
+
+run code with ubuntu:
+	-navigate to directory
+	-click link, type bash
+	-install g++
+	-g++ -Wall -std=c++11 client.cpp -o client

@@ -1,0 +1,123 @@
+=====================================
+		1
+=====================================
+a) 1. United Kingdom (166.63.223.21)
+      China (202.84.141.145)
+      Australia (203.50.13.93)
+
+   2. United States (195.2.8.46)
+      Japan (129.250.4.143)
+      United Kingdom (166.63.223.21)
+
+b) The sender expects a reply within a specified number of seconds. 
+   If a packet is not acknowledged within the expected interval, 
+   an asterisk is displayed
+
+c)
+1. Minimum = 332ms
+   Avg     = 334 
+   Maximum = 337
+
+2. Minimum = 358
+   Avg     = 360
+   Maximum = 365
+
+e)
+www.ru.is: Dublin, Ireland has the lowest average ping response time of 0.456
+           indicating that Ireland is the country in which the host is located.  
+	   This website confirms it: https://check-host.net/ip-info?host=www.ru.is
+
+www.mit.edu: Seems to be located in Australia, Germany, Ireland, France, UK, 
+	     China, India, Denmark, US, Malaysia, Thailand, Turkey and Vietnam
+	
+             MIT uses statistical multiplexing to do this
+
+=====================================
+		2
+=====================================
+a) 
+8000 Gb in TB, 100 TB = 800,000 Gb = 800,000 sec
+1Gbps with 15% overhead = 850Mbps
+
+800,000 / 0.85 = 941.176,4705 sek = 10.89 days
+
+according to: http://www.kylesconverter.com/data-bandwidth/megabits-per-second-to-terabytes-per-day
+9.18 per day. 100 / 9.18 = 10.89 days!
+
+b)
+Tape = 12TB in 3 + 3 + 3 = 9 hrs.
+Network = http://www.kylesconverter.com/data-bandwidth/megabits-per-second-to-terabytes-per-hour
+850 Mbps = 0.00010625 TB 
+0.00010625 * 60 * 60 = 0.38 TBph 
+0.38 * 9 = 3.42 TB in 9 hours
+
+When dealing with data over 3.42 TB, it is quicker to send the data by tape
+rather than transferring it over the network.
+
+c) If a tape can hold 12 TB then we would need 9 tapes for 100TB.
+
+1 MBps = 0.0036 TBph
+900 MBps = 3.24 TBph
+So each tape (save for the last one) would take 12/3.24 = 3.7 hours to write, 9 hours
+to transfer then another 3.7 hours to read. Let's assume that to save travel costs,
+we will only send data by plane when all of the tapes are ready, instead of
+sending each tape as soon as it's ready on its own private plane.
+
+Last tape only needs to store 4 TB, 12/4 = 3, so it would take 
+3.7/3 = 1.23 hours to read/write
+
+
+Tape 1-9 time to write: 3.7 * 8 + 1.23 = 30.83
+Time to transfer: 9
+Tape 1-9 time to read: 3.7 * 8 + 1.23 = 30.83
+
+70.66 hours
+
+d)
+70.66 / 9 = 7.8511 
+7.8511 * 3.4425 = 27.02745
+
+=====================================
+		3
+=====================================
+a) If each customer is guaranteed access to 1Gb at any time, then only one customer
+can have access to each Gb. Since the link is 10 Gb then that makes a total of 
+10 customers
+
+b) 20% profit = 240,000 ISK
+240,000 / 7,000 = 34.2
+The ISP needs to provision at least 35 customers
+
+c) 35 / 10 = 3.5
+
+1 / 3.5 = 0.285
+
+1000 Mb * 0.285 = 285.7 Mbps
+
+d) 
+
+e) 
+Most people work during the day and won't use their household internet 
+
+until after work. To maximize performance, the ISP should ideally have
+
+one household customer and one business customer per 1Gb link. That way,
+
+the business customer would have full access to the 1Gb during business 
+
+hours and the household customer would have full access after business 
+hours.
+
+
+
+
+
+
+
+
+
+
+
+      
+    
+

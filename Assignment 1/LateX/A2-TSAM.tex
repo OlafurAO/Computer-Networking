@@ -1,0 +1,255 @@
+\documentclass[9pt, addpoints]{exam}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx,lastpage}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{scrextend}
+\usepackage{mathrsfs}
+\usepackage{hhline}
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{varwidth} % centering for itemize
+\usepackage{listings}
+\usepackage[linewidth=1pt]{mdframed}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\qformat{\thequestion\dotfill \emph{\totalpoints\ points}}
+\pagestyle{headandfoot}
+\header{T-409-TSAM}{Assignment 1}{\thepage/\numpages}
+\runningheadrule
+\firstpagefooter{}{}{}
+\runningfooter{}{Page \thepage\ of \numpages}{}
+
+\graphicspath{{../}{Figures/}}
+\title{Assignment 1}
+
+\begin{document}
+\noindent
+\begin{minipage}[l]{.11\textwidth}%
+\noindent
+    \includegraphics[width=\textwidth]{HR}
+\end{minipage}%
+%\hfill
+\begin{minipage}[r]{.6\textwidth}%
+\begin{center}
+    {\large\bfseries Department of Computer Science \par
+    \large Computer Networks \\[2pt]
+    \large Due: Sunday 1st September {23.59}
+    }
+\end{center}
+\end{minipage}%
+\fbox{\begin{minipage}[l]{.4\textwidth}%
+\noindent
+    {\bfseries Your name:}\\[2pt]
+TA Name:    \\
+Time Taken: \\
+{\footnotesize Estimated Time: {10 hours}}
+\end{minipage}}%
+
+\large     
+\vspace{2cm}
+\begin{center}
+    \begin{minipage}{40em}
+        \begin{center}
+            This is an individual assignment and should be submitted as a pdf using Canvas.  
+        \end{center}
+        
+        \vspace{6pt}
+    For those who like to dabble in the dark arts, the latex version 
+    is also available. You may submit in any legible form you wish.
+    
+        \vspace{6pt}
+    Marks are awarded for question difficulty. While there is 
+    typically a relationship between difficulty and length of answer,
+    it may not be a strong one. Always justify your answer if necessary,
+    especially with somewhat open ended design questions.
+
+    \vspace{6pt}
+    Optional: Please include a rough estimate of how long it took you do 
+    the assignment so that we can calibrate the work being assigned 
+    for the course. (The estimated time is provided purely as a guideline.)
+    \par
+    \vspace{12pt}
+    \end{minipage}
+\end{center}
+
+\vspace{4cm}
+\begin{center}
+    \gradetable[h]
+\end{center}
+\newpage
+\section*{Introduction}
+
+
+%%% Question 1
+\section*{Network Transport Times}
+\begin{questions}
+    \question
+\begin{parts}
+     \part[2]
+     {traceroute and ping are command line tools to show the
+              network path to another host.  
+              
+    Perform a traceroute to each of the following hosts. For
+    each host, give at least one intermediate countries the network
+    packets are going through.
+
+    \begin{enumerate}{}
+        \item mel1.speedtest.telstra.net
+        \item 130.69.0.0
+    \end{enumerate}
+    }
+
+    \part[2]{What does a "* * *" line in the traceroute response mean?}
+
+    \part[2] 
+    {
+     Using the ping command, what is the round trip time (RTT) to the
+     following hosts?
+     \begin{enumerate}{}
+            \item mel1.speedtest.telstra.net
+            \item per1.speedtest.telstra.net
+     \end{enumerate}
+     }
+     \part[2]{Both the hosts are in Australia, one is in Melbourne, the
+     other in Perth. If the speed of light in a vacuum is ~300,000,000 m/s 
+     and the core index of refraction of fiber-optic cable in the Australian
+     backbone is 1.50, approximately how far is Perth from Melbourne?}
+
+     \part[4]{CA Technologies provides a site which allows you to ping a
+      publicly accessible Internet host from different hosts worldwide in
+      order to measure local response time for your users. 
+
+    \url{https://asm.ca.com/en/ping.php}
+
+    Use this site to ping:
+    \begin{itemize}{}
+        \item www.ru.is
+        \item www.mit.edu
+    \end{itemize}
+
+    By examining the difference in ping response times for www.ru.is, 
+    in what country is this host actually located?
+
+
+    In what countries does MIT appear to be located?
+
+
+    What service is MIT using to do this?
+    }
+
+
+\end{parts}
+
+%%% Question 2
+
+     \section*{Network Throughput}
+  \question
+  \begin{parts}
+      \part[2]
+      You need to transfer a geophysical
+      dataset of 100TB stored on disk in Iceland to the Norwegian Metrology
+      Office.  How long will it take to transfer this dataset to Norway
+      assuming a 1Gbps connection, and 15\% protocol overhead?
+      \vspace{8pt}
+      \par
+     \part[2]
+      Ref: \url{https://en.wikipedia.org/wiki/Linear_Tape-Open}
+      \vspace{8pt}
+
+      \vspace{\stretch{4}}
+
+      An industry standard tape (circa 2018) can hold 12TB of
+      data on a single cartridge.
+
+      Assuming a best case scenario of 3 hours ground transport time to
+      Keflavik airport and 3 hours from Oslo to destination company, with 
+      a scheduled flight time also of 3 hours. 
+      How much data do you need before it is quicker to send the data by 
+      tape than transfer it over the network? (Ignore time to read and write 
+      the tape.)
+
+    \vspace{\stretch{4}}
+
+     \part[2] Tannenbaum in Computer Networks wisely advises never to overlook
+      the speed of sending data by existing transport networks - planes
+      in this case. However, his example overlooks the time taken to
+      create the tapes in the first place.
+
+      Assuming that the maximum writing and reading speed for a tape is
+      900(MB/s), how long does it actually take to transfer the data
+      to Norway including the time to read and write the tapes?
+    \vspace{\stretch{4}}
+
+      \part[1] What is the new break even amount for sending data by planes?
+    \vspace{\stretch{4}}
+
+  \end{parts}
+
+%%% Question 3
+
+  \section*{Network Engineering}
+ \question
+   An ISP is statistically multiplexing its customers over 10Gb links.
+   You have been asked to calculate how many customers it can afford to assign 
+   to each link, and maintain a reasonable level of service to each one.
+
+   Nominally, each customer is being sold a 1Gb link.
+
+  \begin{parts}
+  \part[1]{If each customer is to be guaranteed access to 1Gb at any time,
+      how many customers can the ISP provision per 10Gb link.}
+
+  \part[2]{Assume that the 10Gb link costs the ISP 200,000 ISK/month,
+      and the ISP needs to make 20\% profit to cover all overheads.
+      What is the smallest number of customers that the ISP provision 
+      for each 10Gb link, and still meets its profit targets, if the 
+      ISP charges each customer 7,000ISK for their Internet service?
+  }
+  \part[2]{What is the maximum speed each customer will be able to
+      download data at, assuming all customers are maximising their
+      network connection?}
+
+
+  \part[4] The ISP decides that on average each customer will use
+      their link 10\% of the time, evenly distributed over the day.
+      Assuming this is correct, how many customers can the ISP now 
+      provision and still maintain the illusion that they have access
+      to 1Gb each? 
+
+    \part[2]If the ISP has a mixture of business and household customers,
+      how should it assign the different types of customer to its links
+      to improve performance?
+
+  \end{parts}
+
+\end{questions}
+%%% Question 4
+ \section*{Bonus Question: 1 Bonus Mark}
+
+ Referring back to question 1, and the time taken for a packet to travel
+ to and across Australia.  Using traceroute create a table of round trip 
+ times to the two hosts in question 1, and to and from one of the London 
+ switches performed at least four different times of the day (it does not
+ have to be the same day), separated by at least 2 hours
+ from each other. That is you are capturing the time from Iceland to London,
+ and from London to Australia for the same route.
+
+ \vspace{18pt}
+ Include your measurements in a table. With reference to these measurements:
+ \vspace{18pt}
+
+ What is the fastest and slowest time of day to send traffic to Australia?
+ 
+ \vspace{18pt}
+
+ Where is the congestion occurring that slows down the traffic?
+
+\end{document}

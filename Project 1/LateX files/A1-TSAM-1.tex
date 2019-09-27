@@ -1,0 +1,218 @@
+\documentclass[9pt, addpoints]{exam}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx,lastpage}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{scrextend}
+\usepackage{mathrsfs}
+\usepackage{hhline}
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{varwidth} % centering for itemize
+\usepackage{listings}
+\usepackage[linewidth=1pt]{mdframed}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\qformat{\thequestion\dotfill \emph{\totalpoints\ points}}
+\pagestyle{headandfoot}
+\header{T-409-TSAM}{Assignment 1}{\thepage/\numpages}
+\runningheadrule
+\firstpagefooter{}{}{}
+\runningfooter{}{Page \thepage\ of \numpages}{}
+
+\graphicspath{{../}{Figures/}}
+\title{Assignment 1}
+
+\begin{document}
+\noindent
+\begin{minipage}[l]{.11\textwidth}%
+\noindent
+    \includegraphics[width=\textwidth]{HR}
+\end{minipage}%
+%\hfill
+\begin{minipage}[r]{.6\textwidth}%
+\begin{center}
+    {\large\bfseries Department of Computer Science \par
+    \large Computer Networks \\[2pt]
+    \large Due: Sunday 25 August (23.59)
+    }
+\end{center}
+\end{minipage}%
+\fbox{\begin{minipage}[l]{.4\textwidth}%
+\noindent
+    {\bfseries Your name:}\\[2pt]
+TA Name:    \\
+Time Taken: \\
+{\footnotesize Estimated Time: {15 hours}}
+\end{minipage}}%
+
+\large     
+\vspace{2cm}
+\begin{center}
+    \begin{minipage}{40em}
+        \begin{center}
+            This is an individual assignment and should be submitted as a pdf, with accompanying code, using Canvas.  
+        \end{center}
+        
+        \vspace{6pt}
+    For those who like to dabble in the dark arts, the latex version 
+    is also available. You may submit in any legible form you wish, but please
+    use tar to bundle files.
+    
+        \vspace{6pt}
+    Practical programming exercises may be done on your local laptop, or
+    using your account on skel.ru.is. Part of this assigment is getting your
+    programming environment setup for this course. We strongly recommend that you
+    create a suitable environment on your laptop or other machine which
+    you can use to run client and monitoring software such as tcpdump.
+    If you have any issues at all in getting setup, please contact 
+    us \textbf{immediately}.
+
+        \vspace{6pt}
+    Marks are awarded for question difficulty. While there is 
+    typically a relationship between difficulty and length of answer,
+    it may not be a strong one. Always justify your answer if necessary,
+    especially with somewhat open ended design questions.
+
+    \vspace{6pt}
+    Optional: Please include a rough estimate of how long it took you do 
+    the assignment so that we can calibrate the work being assigned 
+    for the course. (The estimated time is provided purely as a guideline.)
+    \par
+    \vspace{12pt}
+    \end{minipage}
+\end{center}
+
+\vspace{4cm}
+\begin{center}
+    \gradetable[h]
+\end{center}
+\newpage
+\section*{Introduction}
+
+\input{networking}
+The commands above are a summary list of command line tools that can be used
+for networking purposes. In particular, nmap and ncat (note, another 
+version of ncat called nc exists, but is not always as reliable), 
+will be useful for this assignment. Some of these commands may need to 
+be installed using the package management for your machine.
+
+
+
+%%% Question 1
+\section*{Network Connectivity}
+The goal of this exercise is to first introduce you to some useful network
+command line tools, to help you explore and debug network programs, and 
+then get you to write your first very simple network program. 
+\begin{questions}
+    \question
+     Download the server.cpp file attached to this assignment.
+     This is a very simple TCP/IP server, which listens for incoming
+     TCP connections on port 5000.  Compile and run it using the commands:
+     \begin{lstlisting}
+        Linux and Windows/Linux:
+           g++ -Wall -std=c++11 server.cpp -o server
+        OSX
+           g++ -std=c++11 server.cpp -o server
+
+        ./server
+     \end{lstlisting}
+
+     Note, you may need to install g++ (On OSX use brew).
+
+     Now connect to it from the same machine you ran the server on
+     using the standard loopback network interface "127.0.0.1"
+     by performing the following steps.
+
+     From a separate terminal, verify that you can connect to the server 
+     which is listening on port 5000, using the ncat command: 
+
+     \begin{lstlisting}
+        ncat 127.0.0.1 5000  
+     \end{lstlisting}
+     
+     The server should tell you a client has connected.
+     Now on a third terminal, run the tcpdump command (which may require sudo privilege) 
+     to monitor the traffic between the client and the server, using the following incantation:
+
+     \begin{lstlisting}
+        tcpdump -X -i lo host 127.0.0.10 and port 5000
+     \end{lstlisting}
+
+     The server supports one command, SYS $<command>$ which will run the one word command
+     specified on the server. Enter a command of your choice (eg. who, ls, w, etc), and 
+     observe the results on your terminal. 
+
+ \begin{parts}    
+     \part[10] For full marks on this question, repeat the above series of steps,
+     connecting to the server from a \textbf{different} machine than the one
+     the server is running from, and submit a screen capture
+     of each terminal, ncat, ./server and tcpdump (three in total).
+
+     If for \textbf{any} reason you are not able to connect from a different machine,
+     submit the screen captures from the same machine as above, and a convincing explanation,
+     including the name of the TA you spoke to to get help, of the issue you ran into.
+ \end{parts}
+
+\newpage
+
+%%% Question 2
+    \question
+     For the second part of this assignment, you need to write a client
+     program that connects to the server remotely, in the same way you used
+     ncat to do. All the client needs to do is to connect to the server, 
+     and send a SYS command to the server. For full marks for this question
+     submit:
+
+ \begin{parts}
+     \part[10] Client code connecting as described above
+
+     \part[2] Screen shot of server receiving command and executing it
+
+     \part[3] tcpdump of command being sent to server
+
+ \end{parts}
+
+%%% Question 3
+
+ \question
+      For the third part of this assignment, you need to modify both the server,
+      and the client you have just written. 
+
+      The server should be modified to send the client the output from the command
+      executed as a response and also to handle parameters on the command being sent
+      from the client. For example, "ls -sal". The client should be modifed to receive the output of
+      the commend from the server,
+      and to print it out on the comand line, and then be ready to accept and send
+      another command. That is, the client operates in a loop, send command, receive
+      results, print, send command, etc., as network clients often do.
+
+ \begin{parts}
+      \part[5] Modified server code meeting above specification
+      \part[5] Modified client code meeting above specification
+      \part[5] tcpdump of at least two commands being sent to server and response 
+      being received.
+ \end{parts}
+%%% Question 4
+ \question
+     In addition to the marks for the individual question, the following marks will be
+     awarded:
+ \begin{parts}
+     \part[2] A Makefile is included which compiles the code submitted
+     \part[2] README file is provided explaining how to compile and run submitted code. File
+     should include command line commands used to compile (IDE's will not be accepted), and
+     instructions on how to run the programs.
+     \part[2] Code compiles using the Makefile, and runs following instructions in README file
+     \part[4] Code is clearly structured (no 200 line functions), and well commented. Variable
+     names are informative, and each function/class has a header describing its purpose.
+ \end{parts}
+
+\end{questions}
+\end{document}
