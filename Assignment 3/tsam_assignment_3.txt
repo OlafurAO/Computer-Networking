@@ -1,6 +1,210 @@
-================
-Problem 1
-================
-a)  unique identifier assigned to a network interface controller (NIC). For communications within a network segment, it is used as a network address for most IEEE 802 network technologies, including Ethernet, Wi-Fi, and Bluetooth
+====================
+1 NETWORK TRIVIA
+====================
+
+a)  unique identifier assigned to a network interface controller (NIC). 
+For communications within a network segment, it is used as a network address for 
+most IEEE 802 network technologies, including Ethernet, Wi-Fi, and Bluetooth
 
 b)
+
+c)
+
+d)
+
+e) An attack that bombards a victim’s network with more traffic than 
+it can handle. Floods a website with fake
+DNS lookup requests to consume the bandwidth until the
+site eventually crashes.
+
+f) A collection of connected IP routing prefixes
+
+g)
+
+h)  It is used by network devices, including routers, to send 
+error messages and operational information indicating success or 
+failure when communicating with another IP address
+
+i) The laser may be powerful enough to cause damage to your eyes. 
+Also the infrared lasers are invisible to the naked eye,
+which allows you to look at them for a long period of time
+without even realizing the damage they're causing. While not
+all of them are harmful, it's better to be safe than sorry.
+
+j) Symmetric encryption (old technique) uses a single key that needs 
+to be shared among the people who need to receive the message. 
+Asymmetrical encryption (relatively new technique) uses a pair of 
+public key and a private key to encrypt and decrypt messages when communicating. 
+
+k) Too much data arriving before a device can handle it causes data overflow, meaning the data is either lost or must be retransmitted.
+
+====================
+2 QUEUING THEORY 
+====================
+a)
+
+b)
+i. 
+ii. If there are 4 arrivals an hour, the help desk
+would require 4 specialists to fully ensure that 
+no one would have to queue
+
+iii. That there would only be 4 arrivals per hour
+
+iv. During peak work hours, when most people are using their 
+computers or devices
+
+====================
+3 INFORMATION THEORY
+====================
+a) While WiFi offers more convenience than copper wires, 
+devices with copper wiring (and wired connections in 
+general) will enjoy a significantly more stable connection
+than those with a WiFi connection. 
+Assuming the speed of the WiFi and the wired connection is 
+the same, the copper wire connection would, in most 
+scenarios, be able to transfer more data than the WiFi
+
+b)
+i. 
+
+ii. 101 Nodes. If each node can recieve 100 messages and each
+node can send a message to every single one, then one node
+can send a message to the other 100 nodes.
+
+
+
+====================
+4 TCP/IP
+====================
+a) 1. A: Send a SYN segment
+   2. B: Send a SYN-ACK segment
+   3. A: Send an ACK segment
+   4. B: Enter the TIME-WAIT segment
+   5. A: Send an ACK+DATA segment
+   6. B: Send an ACK segment
+   7. A, B: Do the rest of the data exchange
+   8. A: Send a FIN segment
+   9. B: Send a FIN segment
+   10. A: Close the connection
+   11. B: Close the connection
+
+c) SYN cookies move the state of connection into the ACK field
+
+d) It guarantess reliable and in-order packet delivery.
+
+e) A reciever can send SACK packets to the sender which informs him of the data that was recieved. Then, instead
+of retransmitting all of the data segments, the sender
+can simply retransmit those that are missing.
+
+f) It's an issue which can occur as a result of badly 
+designed or implemented TCP flow control. It's when
+a sender transmits data slowly and/or a receiver 
+receives data slowly.
+
+====================
+5 Networks and Addressing
+====================
+a) Subnet         IP           Broadcast addr
+   44.36.35.0/27
+   10.12.13.0/24
+   18.0.0.0/8
+
+
+b) NAT solves IPv4 address exhaustion. There are only so 
+many IPv4 addresses available (less than 4.3 billion)
+so they're bound to run out eventually. One IP address
+of a single NAT gateway can be used by an entire private 
+network. Using this method can conserve the available
+addresses.
+
+c) TURN, NAT Hole punching, STUN, ICE, UPnP, NAT-PMP (PCP)
+   NAT hole punching is one of those methods.
+   The basic story of a NAT Hole Punch is that, when both 
+   the Nodes who want to connect to each other send a 
+   message to the server. Server responds to both nodes with 
+   each other’s IP address and Ports (Endpoints). Both Nodes 
+   try to establish a connection with each other by sending 
+   a message to each other, The messages are discarded by 
+   the receiver side NATs but the sender side NATs note down 
+   the address to which message is sent and any incoming 
+   messages from that address will be considered as a reply 
+   to this message an will be routed to the source endpoint. 
+   Both Nodes again try connecting to each other by sending 
+   a message. But now the messages are received successfully 
+   as the NAT thinks that this message is a reply to the 
+   previous(failed) message.BOOM! a connection is 
+   established and a HOLE IS PUNCHED.
+
+====================
+6 Network design and security
+====================
+a) Its purpose is to add an additional layer of security to 
+the clinic's LAN. Most of the clinic's network is safe
+behind a firewall and external networks can only access
+the part of the clinic's network that's within the DMZ
+
+b) It's best to use two firewalls. One of them can
+allow only traffic from external networks to the DMZ while
+the other can allow only traffic from the internal network
+to the DMZ. Bonus points for having two firewalls from two
+different vendors since it's unlikely that the same
+security vulnerability can be exploited to get past both of
+the firewalls.
+
+c) A phishing attack is described as an attack that can be
+executed via social engineering. 
+
+DNS servers use UDP instead of TCP. With UDP, there's
+no guarantee that the sender is who they say they are.
+This made it easier for the attackers to reroute the 
+traffic from the clinic's WWW to their own malicious
+site that they could have used to steal the user's 
+information (via a fake log in page for example).
+
+Such an attack can be prevented by utilizing DNSSEC
+(Domain Name System Security Extensions). DNSSEC
+can be used for verifying the data integrity and
+the origin of a DNS. 
+
+d) 
+i.
+
+
+====================
+7 Bluetooth
+====================
+a)
+  i. GAP is what makes a bluetooth device visible and
+  sets the conditions on how devices can interact with
+  or connect to each other.
+
+  ii.
+  iv.
+  v. The hackers can exploit flaws in OBEX. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
